@@ -1,3 +1,4 @@
+package greedy;
 class Solution {
     public int eraseOverlapIntervals(int[][] intervals) {
         int n= intervals.length;

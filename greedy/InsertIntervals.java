@@ -1,3 +1,4 @@
+package greedy;
 class Solution {
     public int[][] insert(int[][] intervals, int[] newInterval) {
         List<int[]> rec= new ArrayList<>();

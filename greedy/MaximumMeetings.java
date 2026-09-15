@@ -1,3 +1,4 @@
+package greedy;
 class Solution {
     public ArrayList<Integer> maxMeetings(int[] s, int[] f) {
         

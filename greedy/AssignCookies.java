@@ -1,3 +1,4 @@
+package greedy;
 class Solution {
     public int findContentChildren(int[] g, int[] s) {
         int ans= 0;

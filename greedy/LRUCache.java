@@ -1,3 +1,4 @@
+package greedy;
 class LRUCache {
 
     Node list, tail;

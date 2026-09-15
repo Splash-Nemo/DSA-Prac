@@ -1,3 +1,4 @@
+package greedy;
 class Solution {
     public boolean checkValidString(String s) {
         if(s.charAt(0)==')' || s.length()==0) return false;

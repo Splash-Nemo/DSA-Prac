@@ -1,3 +1,4 @@
+package greedy;
 class Solution {
     static int solve(int bt[]) {
         // code here

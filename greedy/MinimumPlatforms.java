@@ -1,3 +1,4 @@
+package greedy;
 class Solution {
     public int minPlatform(int arr[], int dep[]) {
         //  code here

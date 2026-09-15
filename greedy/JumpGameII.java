@@ -1,3 +1,4 @@
+package greedy;
 class Solution {
     public int jump(int[] nums) {
         int n= nums.length;

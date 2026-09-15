@@ -1,3 +1,4 @@
+package greedy;
 class Solution {
     public ArrayList<Integer> jobSequencing(int[] d, int[] p) {
         

@@ -1,3 +1,4 @@
+package greedy;
 class Solution {
     public boolean lemonadeChange(int[] bills) {
         boolean bool= true;
