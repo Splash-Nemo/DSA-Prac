@@ -1,6 +1,6 @@
 # DSA Solutions Repository
 
-Topic Order -> Greedy -> Graphs -> Dynamic Programming
+A collection of Data Structures and Algorithms solutions.
 
 ## 📊 Progress Tracker
 
