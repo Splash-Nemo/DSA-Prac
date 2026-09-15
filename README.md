@@ -1,8 +1,4 @@
-# DSA Solutions Repository
-
-A collection of Data Structures and Algorithms solutions.
-
-## 📊 Progress Tracker
+# 📊 DSA Progress Tracker
 
 | Category | Solutions |
 |----------|-----------|
