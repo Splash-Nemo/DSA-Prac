@@ -1,0 +1,53 @@
+name: Update DSA Counter
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Count DSA solutions
+        run: |
+          #!/bin/bash
+          
+          # Create counts for each category
+          graphs=$(find graphs -type f 2>/dev/null | wc -l)
+          trees=$(find trees -type f 2>/dev/null | wc -l)
+          arrays=$(find arrays -type f 2>/dev/null | wc -l)
+          linked_lists=$(find linked-lists -type f 2>/dev/null | wc -l)
+          dp=$(find dynamic-programming -type f 2>/dev/null | wc -l)
+          
+          total=$((graphs + trees + arrays + linked_lists + dp))
+          
+          # Create the README
+          cat > README.md << 'READMEEOF'
+          # DSA Solutions Repository
+          
+          A collection of Data Structures and Algorithms solutions.
+          
+          ## 📊 Progress Tracker
+          
+          | Category | Solutions |
+          |----------|-----------|
+          READMEEOF
+          
+          echo "| Graphs | $graphs |" >> README.md
+          echo "| Trees | $trees |" >> README.md
+          echo "| Arrays | $arrays |" >> README.md
+          echo "| Linked Lists | $linked_lists |" >> README.md
+          echo "| Dynamic Programming | $dp |" >> README.md
+          echo "| **Total** | **$total** |" >> README.md
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update DSA counter" && git push)
