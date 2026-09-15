@@ -20,14 +20,12 @@ jobs:
         run: |
           #!/bin/bash
           
-          # Create counts for each category
-          graphs=$(find graphs -type f 2>/dev/null | wc -l)
-          trees=$(find trees -type f 2>/dev/null | wc -l)
-          arrays=$(find arrays -type f 2>/dev/null | wc -l)
-          linked_lists=$(find linked-lists -type f 2>/dev/null | wc -l)
-          dp=$(find dynamic-programming -type f 2>/dev/null | wc -l)
+          # Create counts for each category (only .java files)
+          graphs=$(find graphs -type f -name "*.java" 2>/dev/null | wc -l)
+          greedy=$(find greedy -type f -name "*.java" 2>/dev/null | wc -l)
+          dp=$(find dynamic-programming -type f -name "*.java" 2>/dev/null | wc -l)
           
-          total=$((graphs + trees + arrays + linked_lists + dp))
+          total=$((graphs + greedy + dp))
           
           # Create the README
           cat > README.md << 'READMEEOF'
@@ -42,9 +40,7 @@ jobs:
           READMEEOF
           
           echo "| Graphs | $graphs |" >> README.md
-          echo "| Trees | $trees |" >> README.md
-          echo "| Arrays | $arrays |" >> README.md
-          echo "| Linked Lists | $linked_lists |" >> README.md
+          echo "| Greedy | $greedy |" >> README.md
           echo "| Dynamic Programming | $dp |" >> README.md
           echo "| **Total** | **$total** |" >> README.md
 
