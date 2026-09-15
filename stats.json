@@ -1,0 +1,159 @@
+{
+  "total": 18,
+  "by_difficulty": {
+    "easy": 0,
+    "medium": 0,
+    "hard": 0
+  },
+  "by_category": {
+    ".": 18
+  },
+  "by_company": {},
+  "by_tag": {},
+  "problems": [
+    {
+      "name": "MinimumPlatforms",
+      "file": "./greedy/MinimumPlatforms.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "LemonadeChange",
+      "file": "./greedy/LemonadeChange.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "NonOverlappingIntervals",
+      "file": "./greedy/NonOverlappingIntervals.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "JobSequencing",
+      "file": "./greedy/JobSequencing.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "MergeIntervals",
+      "file": "./greedy/MergeIntervals.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "JobSequencingProblem",
+      "file": "./greedy/JobSequencingProblem.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "ValidParenthesisString",
+      "file": "./greedy/ValidParenthesisString.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "JobSchedulingProblem",
+      "file": "./greedy/JobSchedulingProblem.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "LRUCache",
+      "file": "./greedy/LRUCache.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "JumpGameI",
+      "file": "./greedy/JumpGameI.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "FractionalKnapsack",
+      "file": "./greedy/FractionalKnapsack.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "AssignCookies",
+      "file": "./greedy/AssignCookies.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "Candy",
+      "file": "./greedy/Candy.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "JumpGameII",
+      "file": "./greedy/JumpGameII.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "InsertIntervals",
+      "file": "./greedy/InsertIntervals.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "MaximumMeetings",
+      "file": "./greedy/MaximumMeetings.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "AdjacencyList",
+      "file": "./graphs/Learning/AdjacencyList.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    },
+    {
+      "name": "AdjacencyMatrix",
+      "file": "./graphs/Learning/AdjacencyMatrix.java",
+      "category": ".",
+      "difficulty": "unknown",
+      "companies": [],
+      "tags": []
+    }
+  ]
+}
