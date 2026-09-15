@@ -7,8 +7,6 @@ A collection of Data Structures and Algorithms solutions.
 | Category | Solutions |
 |----------|-----------|
 | Graphs | 2 |
-| Trees | 0 |
-| Arrays | 0 |
-| Linked Lists | 0 |
+| Greedy | 16 |
 | Dynamic Programming | 0 |
-| **Total** | **2** |
+| **Total** | **18** |
