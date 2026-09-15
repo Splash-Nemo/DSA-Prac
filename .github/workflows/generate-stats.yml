@@ -1,9 +1,11 @@
-name: Generate DSA Statistics
+name: Generate DSA Statistics from LeetCode
 
 on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 */6 * * *'
 
 permissions:
   contents: write
@@ -21,84 +23,49 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Generate statistics
+      - name: Fetch LeetCode stats
         run: |
           python3 << 'EOF'
-          import os
+          import requests
           import json
-          import re
-          from collections import defaultdict
+          from datetime import datetime
           
-          stats = {
-              "total": 0,
-              "by_difficulty": {"easy": 0, "medium": 0, "hard": 0},
-              "by_category": {},
-              "by_company": defaultdict(int),
-              "by_tag": defaultdict(int),
-              "problems": []
-          }
+          USERNAME = "ap457codes"
           
-          # Scan all .java files
-          for root, dirs, files in os.walk('.'):
-              # Skip .github folder
-              if '.github' in root:
-                  continue
+          url = f"https://leetcode-stats-api.herokuapp.com/{USERNAME}"
+          
+          try:
+              response = requests.get(url, timeout=10)
+              response.raise_for_status()
               
-              for file in files:
-                  if file.endswith('.java'):
-                      filepath = os.path.join(root, file)
-                      try:
-                          with open(filepath, 'r') as f:
-                              content = f.read(500)  # Read first 500 chars for metadata
-                          
-                          # Extract metadata from comments
-                          problem_match = re.search(r'@problem\s+(.+)', content)
-                          difficulty_match = re.search(r'@difficulty\s+(\w+)', content)
-                          company_match = re.search(r'@company\s+(.+)', content)
-                          tags_match = re.search(r'@tags\s+(.+)', content)
-                          
-                          problem_name = problem_match.group(1).strip() if problem_match else file.replace('.java', '')
-                          difficulty = difficulty_match.group(1).strip().lower() if difficulty_match else "unknown"
-                          companies = [c.strip() for c in company_match.group(1).split(',')] if company_match else []
-                          tags = [t.strip() for t in tags_match.group(1).split(',')] if tags_match else []
-                          category = root.split('/')[0] if '/' in root else 'other'
-                          
-                          # Update statistics
-                          stats["total"] += 1
-                          if difficulty in stats["by_difficulty"]:
-                              stats["by_difficulty"][difficulty] += 1
-                          
-                          if category not in stats["by_category"]:
-                              stats["by_category"][category] = 0
-                          stats["by_category"][category] += 1
-                          
-                          for company in companies:
-                              stats["by_company"][company] += 1
-                          
-                          for tag in tags:
-                              stats["by_tag"][tag] += 1
-                          
-                          stats["problems"].append({
-                              "name": problem_name,
-                              "file": filepath,
-                              "category": category,
-                              "difficulty": difficulty,
-                              "companies": companies,
-                              "tags": tags
-                          })
-                      
-                      except Exception as e:
-                          print(f"Error processing {filepath}: {e}")
+              data = response.json()
+              
+              stats = {
+                  "username": USERNAME,
+                  "total": data["totalSolved"],
+                  "by_difficulty": {
+                      "easy": data["easySolved"],
+                      "medium": data["mediumSolved"],
+                      "hard": data["hardSolved"],
+                  },
+                  "acceptance_rate": data["acceptanceRate"],
+                  "ranking": data["ranking"],
+                  "last_updated": datetime.now().isoformat(),
+                  "source": "LeetCode"
+              }
+              
+              with open('stats.json', 'w') as f:
+                  json.dump(stats, f, indent=2)
+              
+              print(f"✅ Fetched stats for {USERNAME}")
+              print(f"Total problems solved: {stats['total']}")
+              print(f"Easy: {stats['by_difficulty']['easy']}")
+              print(f"Medium: {stats['by_difficulty']['medium']}")
+              print(f"Hard: {stats['by_difficulty']['hard']}")
           
-          # Convert defaultdicts to regular dicts
-          stats["by_company"] = dict(stats["by_company"])
-          stats["by_tag"] = dict(stats["by_tag"])
-          
-          # Write to JSON
-          with open('stats.json', 'w') as f:
-              json.dump(stats, f, indent=2)
-          
-          print(f"Generated stats for {stats['total']} problems")
+          except Exception as e:
+              print(f"❌ Error fetching LeetCode data: {e}")
+              exit(1)
           EOF
 
       - name: Commit and push stats
@@ -106,4 +73,4 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add stats.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update DSA statistics" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update LeetCode statistics" && git push)
