@@ -1,5 +1,3 @@
-package graphs;
-
 class Solution {
     public boolean isBipartite(int[][] graph) {
         int n= graph.length;
@@ -12,9 +10,17 @@ class Solution {
 
         for(int i=0; i<n; i++) color[i]= -1;
 
+        // for(int i=0; i<n; i++){
+        //     if(!vis[i]){
+        //         bool= BFS(i, vis, color, graph);
+        //     }
+
+        //     if(!bool) return false;
+        // }
+
         for(int i=0; i<n; i++){
             if(!vis[i]){
-                bool= BFS(i, vis, color, graph);
+                bool= DFS(i, 0, vis, color, graph);
             }
 
             if(!bool) return false;
@@ -52,6 +58,31 @@ class Solution {
                     q.add(x);
                 }
 
+            }
+        }
+
+        return true;
+    }
+
+    public boolean DFS(int i, int k, boolean[] vis, int[] color, int[][] graph){
+
+        if(vis[i]){
+            if(color[i]!= k) return false;
+            else return true;
+        }
+
+        vis[i]= true;
+        color[i]= k;
+
+        for(int j=0; j<graph[i].length; j++){
+            int neighbour= graph[i][j];
+            int assign= 0;
+
+            if(color[i]==0) assign= 1;
+            else assign= 0;
+
+            if(!DFS(neighbour, assign, vis, color, graph)){
+                return false;
             }
         }
 
