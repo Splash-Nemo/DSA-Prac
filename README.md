@@ -6,7 +6,7 @@ A collection of Data Structures and Algorithms solutions.
 
 | Category | Solutions |
 |----------|-----------|
-| Graphs | 31 |
+| Graphs | 32 |
 | Greedy | 16 |
 | Dynamic Programming | 0 |
-| **Total** | **47** |
+| **Total** | **48** |
