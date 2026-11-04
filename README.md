@@ -8,5 +8,5 @@ A collection of Data Structures and Algorithms solutions.
 |----------|-----------|
 | Graphs | 36 |
 | Greedy | 16 |
-| Dynamic Programming | 0 |
+| DynamicProgramming | 0 |
 | **Total** | **52** |
