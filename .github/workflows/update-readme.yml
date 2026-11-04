@@ -41,7 +41,7 @@ jobs:
           
           echo "| Graphs | $graphs |" >> README.md
           echo "| Greedy | $greedy |" >> README.md
-          echo "| Dynamic Programming | $dp |" >> README.md
+          echo "| DynamicProgramming | $dp |" >> README.md
           echo "| **Total** | **$total** |" >> README.md
 
       - name: Commit and push
