@@ -23,7 +23,7 @@ jobs:
           # Create counts for each category (only .java files)
           graphs=$(find graphs -type f -name "*.java" 2>/dev/null | wc -l)
           greedy=$(find greedy -type f -name "*.java" 2>/dev/null | wc -l)
-          dp=$(find "dynamic programming" -type f -name "*.java" 2>/dev/null | wc -l)
+          dp=$(find DynamicProgramming -type f -name "*.java" 2>/dev/null | wc -l)
           
           total=$((graphs + greedy + dp))
           
@@ -41,7 +41,7 @@ jobs:
           
           echo "| Graphs | $graphs |" >> README.md
           echo "| Greedy | $greedy |" >> README.md
-          echo "| DynamicProgramming | $dp |" >> README.md
+          echo "| Dynamic Programming | $dp |" >> README.md
           echo "| **Total** | **$total** |" >> README.md
 
       - name: Commit and push
